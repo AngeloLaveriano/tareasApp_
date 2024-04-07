@@ -1,3 +1,8 @@
+
+<!--En este caso no se usa la consolaAdministrador debido a que con esta consola
+se puede realizar, al igual que las tareas, una adición de usuarios para trabajar. Sin embargo,
+se encuentra aqui por si se decide activar la opción de agregar usuario. :) -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,6 +44,7 @@
         <div class="mt-5 container">
             <div class="row justify-content-center">
                 <div class="col-8">
+                    <!--Al igual como con las tareas se crea una tabla en la cual cuenta con sus filas y columnas respectivamente-->
                     <table class="table table-bordered">
                         <thead class="table-dark">
                             <th>Nombre</th>
@@ -65,7 +71,9 @@
     </body>
 </html>
 
-<!--Nuevo usuario-->
+<!--Nuevo usuario // Por una razon un otra logra ingresar a app4:consolaAdminsitrador, podrá ver que falta este boton;
+ya que me gusta trabajar por partes, y el configurar este boton con su modal body llevara un tiempito :) -->
+
 <div class="modal fade" id="nuevoUsuario" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -76,6 +84,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <!--Usuario existente-->
                     <div class="row form-group justify-content-around mb-3">
                         <div class="col-5">
                             <label>Username :</label>
@@ -87,26 +96,31 @@
                         </div>
                     </div>
                     <div class="row form-group justify-content-around mb-3">
+                        <!--Tipear nombre-->
                         <div class="col-5">
                             <label>Nombre :</label>
                             <input class="form-control" type="text" name="nombreUsuario" required>
                         </div>
+                        <!--Tipear apellido-->
                         <div class="col-5">
                             <label>Apellido :</label>
                             <input class="form-control" type="text" name="apellidoUsuario" required>
                         </div>
                     </div>
                     <div class="row form-group justify-content-around mb-3">
+                        <!--Tipear profesion-->
                         <div class="col-5">
                             <label>Profesion :</label>
                             <input class="form-control" type="text" name="profesionUsuario" required>
                         </div>
+                        <!--Tipear Email-->
                         <div class="col-5">
                             <label>Email :</label>
                             <input class="form-control" type="email" name="emailUsuario" required>
                         </div>
                     </div>
                     <div class="row form-group justify-content-around mb-3">
+                        <!--Tipear numero de celular-->
                         <div class="col-5">
                             <label>Nro de celular :</label>
                             <input class="form-control" type="text" name="nroCelular" required>
@@ -115,6 +129,7 @@
                         </div>
                     </div>
                     <div class="row form-group justify-content-around mb-3">
+                        <!--Tipear el perfil del usuario-->
                         <div class="col-11">
                             <label>Perfil del usuario :</label>
                             <textarea class="form-control" type="text" name="perfilUsuario" rows="4" required></textarea>
