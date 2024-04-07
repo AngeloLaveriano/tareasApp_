@@ -19,9 +19,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('app1.urls')),
+    path('',include('app4.urls')),
     path('app2/',include('app2.urls')),
-    path('app3/',include('app3.urls'))
+    path('app3/',include('app3.urls')),
+    path('app1/',include('app1.urls')),
 ]
 
 #127.0.0.1:8000/   app2   / welcome
