@@ -3,6 +3,9 @@ from . import views
 
 app_name='app4'
 
+#En esta parte del codigo se encarga de asignar las URLs a las vistas correspondientes en las vistas de la 
+#aplicación. Cada ruta define una dirección URL específica , en la app4, que el usuario puede visitar y la función 
+#de vista que se ejecutará cuando se acceda a esa URL.
 urlpatterns = [
     path('',views.index,name='index'),
     path('perfilUsuario',views.perfilUsuario,name='perfilUsuario'),

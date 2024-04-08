@@ -31,7 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    
+    #Aqui se añade app4, la cual es la aplicacion con la cual se va trabajar en esta ocasion
     'app4',
+
     'app1',
     'app2',
     'app3',

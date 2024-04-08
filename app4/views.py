@@ -1,3 +1,6 @@
+#En esta parte del código importa módulos y decoradores necesarios para manejar solicitudes en Django. 
+#También importa modelos y define clases para la autenticación de usuarios, 
+#gestionando la sesión y manipulación de datos relacionados con usuarios y tareas.
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -7,7 +10,9 @@ from django.contrib.auth.models import User
 from .models import datosUsuario, tareasSistem
 import datetime
 
-# Create your views here.
+#Create your views here. Esta variable se caracteriza debido a que verifica si la solicitud es un POST, 
+#autentica las credenciales proporcionadas y redirige al usuario al perfil si son válidas, de lo contrario, 
+#lo redirige a la página de inicio.
 def index(request):
     if request.method == 'POST':
         nombreUsuario = request.POST.get('nombreUsuario')
@@ -21,6 +26,9 @@ def index(request):
     return render(request,'ingresoUsuario.html')
 
 @login_required(login_url='/')
+#La variable PERFILUSUARIO, se encarga de  maneja la creación de tareas en un sistema de gestión,
+#si la solicitud es un POST, recupera los datos del formulario para crear una nueva 
+#tarea en la base de datos. Luego redirige al usuario a la página de perfil del usuario.
 def perfilUsuario(request):
     if request.method == 'POST':
         nombreTarea = request.POST.get('nombreTarea')
@@ -50,6 +58,9 @@ def perfilUsuario(request):
     })
 
 @login_required(login_url='/')
+#La variable consola adminsitrador es importarte, debido a que 
+#ayuda a crear un usuario ycontraseña para la cual logearse a la
+#pagina web.
 def consolaAdministrador(request):
     if request.method == 'POST':
         usernameUsuario = request.POST.get('usernameUsuario')
@@ -80,21 +91,31 @@ def consolaAdministrador(request):
         'usuariosTotales':User.objects.all()
     })
 
+#La variable CERRARSESION, se encarga basica y obviamente en 
+#cerrar sesión, ello para poder logearse con un usuario.
 def cerrarSesion(request):
     logout(request)
     return HttpResponseRedirect(reverse('app4:index'))
 
+#Esto la variable FINALIZARTAREA, la cual su funcion es 
+#finalizar la tarea obviamente, ello para convertir en la columna
+#Estado tarea pase de PROGRESO a FINALIZADO.
 def finalizarTarea(request,idTarea):
     tareaObj = tareasSistem.objects.get(id=idTarea)
     tareaObj.estadoTarea = 'FINALIZADO'
     tareaObj.save()
     return HttpResponseRedirect(reverse('app4:perfilUsuario'))
 
+#En la variable ELIMINARTAREA, se encarga de eliminar la fila 
+#la cual haya seleccionado, y se eliminara dicha fila.
 def eliminarTarea(request,idTarea):
     tareaObj = tareasSistem.objects.get(id=idTarea)
     tareaObj.delete()
     return HttpResponseRedirect(reverse('app4:perfilUsuario'))
 
+#Esto la variable REANUDARTAREA, la cual su funcion es 
+#reanudar la tarea obviamente, ello para convertir en la columna
+#Estado tarea pase de FINALIZADO a PROGRESO.
 def reanudarTarea(request,idTarea):
     tareaObj = tareasSistem.objects.get(id=idTarea)
     tareaObj.estadoTarea = 'PROGRESO'

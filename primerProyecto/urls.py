@@ -17,12 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+#Cada ruta especifica un prefijo de URL (admin/, app2/, app3/, app1/) seguido de las URL 
+#definidas en las respectivas aplicaciones (app4.urls, app2.urls, app3.urls, app1.urls). 
+#Esto permite acceder a las vistas y funcionalidades de cada aplicación mediante rutas específicas.
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path('',include('app4.urls')),
+    #En esta parte se configura que cada vez que se acceda al sitio wweb,
+    #sin ninguna division, se acceda a app4
+
     path('app2/',include('app2.urls')),
     path('app3/',include('app3.urls')),
     path('app1/',include('app1.urls')),
 ]
-
-#127.0.0.1:8000/   app2   / welcome

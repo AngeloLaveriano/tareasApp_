@@ -14,7 +14,9 @@
             <div class="bg-light position-absolute start-50 top-50 translate-middle text-center" style="width: 300px; height: 550px;">
                 <form method="post" action="{% url 'app4:index' %}">
                 {% csrf_token %}
+                    <!--Logo de la PUCP-->
                     <img src="{% static 'logoPUCP - copia.png' %}" width="260px" class="mb-3">
+                    <!--Login con Usuario y Contraseña-->
                     <div class="form-group mb-3">
                         <label class="bg-light">
                             <b>Ingrese su nombre de usuario</b>
@@ -28,6 +30,7 @@
                         <input class="form-control" type="password" name="contraUsuario" placeholder="Password">
                     </div>
                     <button type="submit" class="btn btn-primary mb-3"><i class="fa-solid fa-right-to-bracket"></i> Ingresar</button>
+                    <!--Imagen Pokemon :D-->
                     <img src="{% static 'logoApp - copia.png' %}" width="300px">
                 </form>
             </div>
